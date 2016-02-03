@@ -1,0 +1,12 @@
+.flashcache-messages {
+  margin: 0 0 0 0; }
+  .flashcache-messages .flashcache-message {
+    border: 1px solid lightblue;
+    background-color: white;
+    padding: 1em; }
+    .flashcache-messages .flashcache-message .flashcache-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 0 0 1em 0; }
+  .flashcache-messages .flashcache-error {
+    background-color: #ffeeee; }
