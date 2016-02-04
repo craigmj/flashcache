@@ -71,6 +71,8 @@ func GetEnvPort() int {
 func WebCommand() *commander.Command {
 	fs := flag.NewFlagSet("web", flag.ExitOnError)
 	port := fs.Int("port", GetEnvPort(), "Port on which webserver should run")
+	bind := fs.String("bind", "", "IP on which to bind webserver")
+
 	return commander.NewCommand("web", "Run the cacheweb webserver",
 		fs,
 		func(args []string) error {
@@ -84,6 +86,6 @@ func WebCommand() *commander.Command {
 			http.HandleFunc("/", CacheWeb)
 
 			glog.Infof("Starting flashcache webserver on port %d", *port)
-			return http.ListenAndServe(fmt.Sprintf(":%d", *port), nil)
+			return http.ListenAndServe(fmt.Sprintf("%s:%d", *bind, *port), nil)
 		})
 }
