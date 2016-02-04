@@ -48,10 +48,10 @@ stop on runlevel [!2345]
 
 respawn
 expect fork
+setuid {{.User}}
+setgid {{.Group}}
 
 script
-	setuid {{.User}}
-	setgid {{.Group}}
 	cd '{{.Dir}}'
 	'{{.Dir}}/bin/flashcache' -logtostderr web -port {{.Port}} -bind {{.Bind}} &
 end script
