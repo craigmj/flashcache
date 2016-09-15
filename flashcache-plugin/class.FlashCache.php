@@ -65,7 +65,6 @@ EOHTML;
 	// If $data is NOT set, the function returns the array received
 	// from the server, or FALSE if the request fails.
 	protected static function doRequest($key, $data=FALSE) {
-		$requestJson = json_encode($request);
 		$c = curl_init(self::Server($key));
 		if ($data) {
 			curl_setopt($c, CURLOPT_POST, 1);
