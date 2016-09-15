@@ -84,7 +84,7 @@ EOHTML;
 		}
 		$json = json_decode($res);
 		$err = false;
-		if ($json->error) {
+		if (property_exists($json,"error") && $json->error) {
 			error_log("ERROR JSON Decoding FLASHCACHE RESPONSE ($res): " . $json->error);
 			return FALSE;
 		}
