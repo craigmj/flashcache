@@ -47,6 +47,9 @@ class FlashCache {
 	 */
 	public static function WriteMessages($group="-flashcache-messages") {
 		$all = self::Get(session_id().$group);
+		if (!$all) {
+			return;
+		}
 		if (0<count($all)) {
 			echo '<div class="flashcache-messages">';
 			foreach ($all as $a) {
