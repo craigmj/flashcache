@@ -19,7 +19,11 @@ class FlashCache {
 	 * Version returns the version of the FlashCache server.
 	 */
     public static function Version() {
-    	return self::Get("__version")->version;
+    	$v = self::Get("__version");
+    	if (!$v) {
+    		return " - offline - ";
+    	}
+    	return $v->version;
     }
 	/** 
 	 * Set sets the flash value for the given key to the 
