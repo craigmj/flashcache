@@ -18,6 +18,7 @@ func main() {
 		devops.UpstartCommand,
 		devops.SetEnvCommand,
 		devops.WriteEnvCommand,
+		devops.SystemdCommand,
 	); nil != err {
 		glog.Fatal(err)
 	}
